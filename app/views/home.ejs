@@ -1,0 +1,47 @@
+<%-include('partials/header')%>; 
+<main class="page-content">
+    <h1 class="page-title">Au Chouette Maraîcher</h1>
+    <div class="page-main">
+        <section class="segment">
+            <div class="segment-title segment-title--action">
+                <% if(fruits){%>
+                <h2>Tous les  <%=categoryUrl%></h2>
+                    <%}%>
+                <label class="small-hidden">
+                    Produits par ligne
+                    <select>
+                        <option class="segment-title-value" value="2">2</option>
+                        <option value="4">4</option>
+                    </select>
+                </label>
+            </div>
+            <div class="segment-cards segment-cards--4">
+                <% for(const fruit of fruits) {%>
+                <article class="card">
+                    <img class="card-img" src="/img/products/<%=fruit.slug%>.jpg" alt="">
+                    <h3 class="card-title"><%=fruit.title%></h3>
+                    <a class="card-action btn" href="/product/<%=fruit.slug%>" aria-label="Voir le détail du produit <%=fruit.title%>">Voir le
+                        détail</a>
+                </article>    
+                <%}%>
+
+            </div>
+        </section>
+        <aside class="segment">
+            <h2 class="segment-title">Votre Maraîcher partout en France</h2>
+            <p class="segment-desc">Retrouvez nos boutiques aux quatre coins de l'hexagone.</p>
+            <ul class="segment-list"></ul>
+
+
+        </aside>
+    </div>
+    <aside class="sidebar">
+        <div class="siderbar-content">
+            <h2 class="sidebar-title">A propos</h2>
+            <p class="sidebar-desc">Découvrez l'origine du Chouette Maraîcher.</p>
+            <a class="sidebar-btn btn" href="/about" aria-label="Découvrir l'origine">Découvrir</a>
+        </div>
+    </aside>
+    </main>
+    <%- include('partials/villes') %>
+    <%- include('partials/footer') %>

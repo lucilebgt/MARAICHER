@@ -1,0 +1,45 @@
+<%- include('partials/header') %>;
+    <main class="page-content">
+        <h1 class="page-title"><%=fruits.title%> </h1>
+        <div class="page-main">
+            <section class="segment">
+                <article class="detail">
+                    <img class="detail-img" src="/img/products/<%=fruitDetails.slug%>.jpg" alt="">
+                    <div class="detail-content">
+                        <h2><%=fruitDetails.title%> : détails</h2>
+                        <h3><%=fruitDetails.category%></h3>
+                        <p><a class="btn" href="/<%=fruitDetails.category%>"><%=fruitDetails.category%></a></p>
+                        <h3><%=fruitDetails.descrition%></h3>
+                        <p>Nos <%=fruitDetails.title%> sont ceuillis à la main et très savoureux.</p>
+                        <h3>Note</h3>
+                        <p><span class="detail-grade" aria-hidden="true">
+                            <% for(let i=0; i<fruitDetails.grade; i++){%>
+                            &#9733;
+                            <%}%>
+                            <%for(let i=0; i< 5-fruitDetails.grade; i++){%>
+                            &#9734; 
+                            <%}%> 
+                        </span>
+                            <%=fruitDetails.grade%>/5</p>
+                        <footer class="detail-action">
+                            <p>Retour <a class="btn" href="/">Accueil</a> ou rayon <a class="btn" href="/<%=fruitDetails.category%>"><%=fruitDetails.category%></a></p>
+                        </footer>
+                    </div>
+                </article>
+            </section>
+            <aside class="segment">
+                <h2 class="segment-title">Votre Maraîcher partout en France</h2>
+                <p class="segment-desc">Retrouvez nos boutiques aux quatre coins de l'hexagone.</p>
+<%-include('partials/villes')%>
+            </aside>
+        </div>
+        <aside class="sidebar">
+            <div class="siderbar-content">
+                <h2 class="sidebar-title">A propos</h2>
+                <p class="sidebar-desc">Découvrez l'origine du Chouette Maraîcher.</p>
+                <a class="sidebar-btn btn" href="/about" aria-label="Découvrir l'origine">Découvrir</a>
+            </div>
+        </aside>
+    </main>
+
+    <%- include('partials/footer') %>;
